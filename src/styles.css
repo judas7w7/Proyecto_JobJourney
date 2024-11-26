@@ -18,8 +18,12 @@ html {
  * Remove the margin in all browsers.
  */
 
-body {
+ body {
   margin: 0;
+  padding: 0;
+  min-height: 100vh; /* La altura del cuerpo ocupa toda la ventana */
+  display: flex;
+  flex-direction: column; /* Organización vertical */
 }
 
 /**
@@ -344,4 +348,9 @@ template {
 
 [hidden] {
   display: none;
+}
+
+
+.section-container{
+  flex: 1;
 }

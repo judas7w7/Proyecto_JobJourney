@@ -1,16 +1,13 @@
-/*
-COLORES:
+/* COLORES:
 Azul logo: #1464F6;
 Azul fondo: #0C59CF;
 Fondo Gris: #C0C0C0
 */
-
 footer {
   background-color: #1464F6;
   text-align: center;
-  position: relative;
+  padding: 1em 0; /* Espaciado vertical en el footer */
 }
-
 
 .footer-container {
   display: flex;
@@ -31,6 +28,10 @@ footer {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.footer-column ul li a {
+  color: white;
 }
 
 .footer-column ul li {

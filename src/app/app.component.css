@@ -1,0 +1,71 @@
+body{
+  background-color: #C0C0C0;
+}
+
+/* Contenedor principal de las secciones */
+.section-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las secciones se ajusten en dispositivos pequeños */
+  justify-content: space-between; /* Espacio entre las secciones */
+  gap: 20px; /* Espaciado entre las secciones */
+  width: 90%; /* Reduce el ancho para dispositivos pequeños */
+  max-width: 1200px; /* Tamaño máximo del contenedor */
+  margin: 40px auto; /* Centra el contenedor */
+}
+
+/* Sección individual */
+.section {
+  flex: 1; /* Las secciones comparten igual ancho */
+  min-width: 300px; /* Ancho mínimo para que no se queden muy pequeñas */
+  max-width: 40%; /* Máximo 45% del ancho disponible */
+  background-color: #0C59CF; /* Fondo azul */
+  color: white; /* Texto blanco */
+  padding: 20px;
+  border: 3px solid black; /* Borde negro */
+  border-radius: 8px; /* Bordes redondeados */
+  text-align: center; /* Texto centrado */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Título de la sección */
+.section h2 {
+  font-size: 2rem; /* Tamaño del título */
+  margin-bottom: 30px; /* Espaciado inferior */
+}
+
+/* Texto de la sección */
+.section p {
+  font-size: 1.2rem; /* Tamaño del texto */
+  line-height: 2; /* Espaciado entre líneas */
+}
+
+/* Botón dentro de las secciones */
+.button {
+  display: inline-block;
+  margin-top: 15px; /* Espaciado superior */
+  padding: 15px 30px; /* Tamaño del botón */
+  font-size: 1.2rem; /* Tamaño del texto del botón */
+  color: black; /* Texto negro */
+  background-color: #d3d3d3; /* Fondo gris */
+  border: 2px solid black; /* Borde negro */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar */
+  text-decoration: none; /* Elimina el subrayado */
+  transition: background-color 0.3s ease; /* Animación suave */
+}
+
+.button:hover {
+  background-color: #a9a9a9; /* Gris oscuro al pasar el mouse */
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .section-container {
+    flex-direction: column; /* Las secciones se apilan verticalmente */
+    align-items: center; /* Centra las secciones */
+  }
+
+  .section {
+    max-width: 90%; /* Ocupan casi todo el ancho */
+  }
+}

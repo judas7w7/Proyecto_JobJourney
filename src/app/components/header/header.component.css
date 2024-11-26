@@ -1,0 +1,13 @@
+.header {
+  background-color: #007bff;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+.header h1 {
+  font-size: 3.5rem; /* Incrementa el tamaño del texto */
+  font-weight: bold; /* Asegura que sea más visible */
+  margin: 0;
+}
+
