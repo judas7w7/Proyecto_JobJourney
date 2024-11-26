@@ -7,12 +7,14 @@ footer {
   background-color: #1464F6;
   text-align: center;
   padding: 1em 0; /* Espaciado vertical en el footer */
+  width: 100%; /* Asegura que el footer ocupe todo el ancho */
+  box-sizing: border-box; /* Incluye el padding en el ancho total */
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column; /* Cambiar a columna para dispositivos pequeños */
+  align-items: center; /* Centra los elementos en el eje horizontal */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1em;
@@ -21,7 +23,8 @@ footer {
 
 .footer-column {
   flex: 1;
-  margin: 0 1em;
+  margin: 0.5em 0; /* Espaciado vertical entre columnas */
+  text-align: center; /* Centra el texto dentro de cada columna */
 }
 
 .footer-column ul {
@@ -41,4 +44,15 @@ footer {
 .footer-column a {
   color: white;
   text-decoration: none;
+}
+
+/* Responsividad */
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row; /* Cambiar a fila en pantallas más grandes */
+  }
+
+  .footer-column {
+    margin: 0 1em; /* Espaciado horizontal entre columnas */
+  }
 }
