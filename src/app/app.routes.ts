@@ -1,13 +1,13 @@
 import { RouterModule, Routes } from '@angular/router';
-import { SectionRegisterComponent } from './components/section-register/section-register.component';
-import { SectionSearchComponent } from './components/section-search/section-search.component';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { SearchPageComponent } from './components/search-page/search-page.component';
 import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
-  { path: 'register', component: SectionRegisterComponent },
-  { path: 'search', component: SectionSearchComponent },
-  { path: '', redirectTo: '/search', pathMatch: 'full' }, // Redirección por defecto
-  { path: '**', redirectTo: '/search' } // Redirección para rutas no válidas
+  { path: 'register', component: RegisterPageComponent },
+  { path: 'search', component: SearchPageComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirección por defecto
+  { path: '**', redirectTo: '/home' } // Redirección para rutas no válidas
 ];
 
 @NgModule({
