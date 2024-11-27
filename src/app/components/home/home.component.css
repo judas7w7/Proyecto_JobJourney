@@ -3,7 +3,6 @@
   display: flex;
   flex-wrap: wrap; /* Permite que las secciones se ajusten en dispositivos pequeños */
   justify-content: space-between; /* Espacio entre las secciones */
-  width: 90%; /* Reduce el ancho para dispositivos pequeños */
   max-width: 1200px; /* Tamaño máximo del contenedor */
   margin: 40px auto; /* Centra el contenedor */
 }
@@ -12,10 +11,7 @@
 app-section-search,
 app-section-register {
   flex: 1; /* Las secciones comparten igual ancho */
-
-
 }
-
 
 /* Responsividad para pantallas pequeñas */
 @media (max-width: 768px) {

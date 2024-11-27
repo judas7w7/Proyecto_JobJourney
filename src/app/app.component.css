@@ -1,3 +1,30 @@
 body {
   background-color: #C0C0C0;
 }
+
+
+main {
+  flex: 1; /* Permite que el contenido principal ocupe el espacio restante */
+  overflow: auto; /* Permite que el contenido se desplace si es necesario */
+}
+
+app-footer{
+  position: static;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1464F6;
+  text-align: center;
+  padding: 1em 0; /* Espaciado inicial */
+  width: 100%;
+  font-size: 1rem; /* Tamaño de fuente responsivo */
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 760px) {
+  app-footer {
+    position: static;
+    padding: 0.5em 0; /* Reduce el padding en pantallas pequeñas */
+    font-size: 0.875rem; /* Reduce el tamaño del texto */
+  }
+}

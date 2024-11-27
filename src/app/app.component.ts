@@ -8,7 +8,7 @@ import { SectionSearchComponent } from './components/section-search/section-sear
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent, HeaderComponent, SectionRegisterComponent, SectionSearchComponent],
+  imports: [RouterOutlet, FooterComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
