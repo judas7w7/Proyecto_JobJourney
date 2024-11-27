@@ -4,11 +4,24 @@ Azul fondo: #0C59CF;
 Fondo Gris: #C0C0C0
 */
 footer {
+  position: static;
+  bottom: 0;
+  left: 0;
+  right: 0;
   background-color: #1464F6;
   text-align: center;
-  padding: 1em 0; /* Espaciado vertical en el footer */
-  width: 100%; /* Asegura que el footer ocupe todo el ancho */
-  box-sizing: border-box; /* Incluye el padding en el ancho total */
+  padding: 1em 0; /* Espaciado inicial */
+  width: 100%;
+  font-size: 1rem; /* Tamaño de fuente responsivo */
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 760px) {
+  footer {
+    position: static;
+    padding: 0.5em 0; /* Reduce el padding en pantallas pequeñas */
+    font-size: 0.875rem; /* Reduce el tamaño del texto */
+  }
 }
 
 .footer-container {
@@ -33,16 +46,13 @@ footer {
   margin: 0;
 }
 
-.footer-column ul li a {
-  color: white;
-}
-
 .footer-column ul li {
   margin: 0.5em 0;
 }
 
 .footer-column a {
   color: white;
+  cursor: pointer;
   text-decoration: none;
 }
 
