@@ -1,1 +1,111 @@
-<p>search-page works!</p>
+<div class="container">
+  <h1>Gestión de Registros</h1>
+
+  <!-- Filtros -->
+  <div class="filtros">
+    <h2>Filtros</h2>
+    <div class="row">
+      <!-- Filtro de Experiencia -->
+      <div class="col-md-2">
+        <label for="experiencia">Experiencia (años)</label>
+        <input
+          type="number"
+          id="experiencia"
+          [(ngModel)]="filtros.experiencia"
+          (input)="aplicarFiltros()"
+          placeholder="Mín. años"
+          min="0"
+        />
+      </div>
+
+      <!-- Filtro de Cargo -->
+      <div class="col-md-2">
+        <label for="cargo">Cargo</label>
+        <input
+          type="text"
+          id="cargo"
+          [(ngModel)]="filtros.cargo"
+          (input)="aplicarFiltros()"
+          placeholder="Buscar por cargo"
+        />
+      </div>
+
+      <!-- Filtro de Género -->
+      <div class="col-md-2">
+        <label for="genero">Género</label>
+        <select id="genero" [(ngModel)]="filtros.genero" (change)="aplicarFiltros()">
+          <option value="">Todos</option>
+          <option *ngFor="let genero of generos" [value]="genero">{{ genero }}</option>
+        </select>
+      </div>
+
+      <!-- Filtro de Nivel Educativo -->
+      <div class="col-md-3">
+        <label for="nivelEducativo">Nivel Educativo</label>
+        <select id="nivelEducativo" [(ngModel)]="filtros.nivelEducativo" (change)="aplicarFiltros()">
+          <option value="">Todos</option>
+          <option *ngFor="let nivel of nivelesEducativos" [value]="nivel">{{ nivel }}</option>
+        </select>
+      </div>
+
+      <!-- Filtro de Ciudad -->
+      <div class="col-md-3">
+        <label for="ciudad">Ciudad</label>
+        <input
+          type="text"
+          id="ciudad"
+          [(ngModel)]="filtros.ciudad"
+          (input)="aplicarFiltros()"
+          placeholder="Buscar por ciudad"
+        />
+      </div>
+
+      <!-- Filtro de Edad -->
+      <div class="col-md-2">
+        <label for="edad">Edad</label>
+        <input
+          type="number"
+          id="edad"
+          [(ngModel)]="filtros.edad"
+          (input)="aplicarFiltros()"
+          placeholder="Edad"
+          min="18"
+        />
+      </div>
+    </div>
+
+    <button (click)="limpiarFiltros()">Limpiar Filtros</button>
+  </div>
+
+  <!-- Tabla de registros -->
+  <div class="table-container">
+    <table class="table" *ngIf="registrosFiltrados.length > 0; else sinDatos">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Cargo</th>
+          <th>Experiencia</th>
+          <th>Género</th>
+          <th>Nivel Educativo</th>
+          <th>Ciudad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let registro of registrosFiltrados">
+          <td>{{ registro.nombre }}</td>
+          <td>{{ registro.edad }}</td>
+          <td>{{ registro.cargo }}</td>
+          <td>{{ registro.experiencia }} años</td>
+          <td>{{ registro.genero }}</td>
+          <td>{{ registro.nivelEducativo }}</td>
+          <td>{{ registro.ciudad }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #sinDatos>
+      <p class="no-data">No hay datos para mostrar.</p>
+    </ng-template>
+  </div>
+</div>
