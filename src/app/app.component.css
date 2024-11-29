@@ -15,7 +15,7 @@ app-footer{
   right: 0;
   background-color: #1464F6;
   text-align: center;
-  padding: 1em 0; /* Espaciado inicial */
+  padding: 13px 0; /* Espaciado inicial */
   width: 100%;
   font-size: 1rem; /* Tamaño de fuente responsivo */
 }
