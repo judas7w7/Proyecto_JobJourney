@@ -12,7 +12,6 @@
           type="number"
           id="experiencia"
           [(ngModel)]="filtros.experiencia"
-          (input)="aplicarFiltros()"
           placeholder="Mín. años"
           min="0"
         />
@@ -25,7 +24,6 @@
           type="text"
           id="cargo"
           [(ngModel)]="filtros.cargo"
-          (input)="aplicarFiltros()"
           placeholder="Buscar por cargo"
         />
       </div>
@@ -33,7 +31,7 @@
       <!-- Filtro de Género -->
       <div class="col-md-2">
         <label for="genero">Género</label>
-        <select id="genero" [(ngModel)]="filtros.genero" (change)="aplicarFiltros()">
+        <select id="genero" [(ngModel)]="filtros.genero">
           <option value="">Todos</option>
           <option *ngFor="let genero of generos" [value]="genero">{{ genero }}</option>
         </select>
@@ -42,7 +40,7 @@
       <!-- Filtro de Nivel Educativo -->
       <div class="col-md-3">
         <label for="nivelEducativo">Nivel Educativo</label>
-        <select id="nivelEducativo" [(ngModel)]="filtros.nivelEducativo" (change)="aplicarFiltros()">
+        <select id="nivelEducativo" [(ngModel)]="filtros.nivelEducativo">
           <option value="">Todos</option>
           <option *ngFor="let nivel of nivelesEducativos" [value]="nivel">{{ nivel }}</option>
         </select>
@@ -55,7 +53,6 @@
           type="text"
           id="ciudad"
           [(ngModel)]="filtros.ciudad"
-          (input)="aplicarFiltros()"
           placeholder="Buscar por ciudad"
         />
       </div>
@@ -67,14 +64,17 @@
           type="number"
           id="edad"
           [(ngModel)]="filtros.edad"
-          (input)="aplicarFiltros()"
           placeholder="Edad"
           min="18"
         />
       </div>
     </div>
 
-    <button (click)="limpiarFiltros()">Limpiar Filtros</button>
+    <!-- Botones -->
+    <div class="button-group">
+      <button (click)="aplicarFiltros()">Aplicar Filtros</button>
+      <button (click)="limpiarFiltros()">Limpiar Filtros</button>
+    </div>
   </div>
 
   <!-- Tabla de registros -->
