@@ -1,28 +1,20 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import { ExcelService } from '../../service/excel.service';
 
 @Component({
   selector: 'app-search-page',
   standalone: true,
-  imports: [FormsModule, CommonModule], // No HttpClientModule aquí
+  imports: [FormsModule, CommonModule],
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.css']
 })
 export class SearchPageComponent implements OnInit {
-  registros: any[] = []; // Lista completa de registros
-  registrosFiltrados: any[] = []; // Lista filtrada para mostrar en la vista
+  registros: any[] = [];
+  registrosFiltrados: any[] = [];
 
-  // Filtros para los datos
-  filtros: {
-    experiencia: number | null;
-    cargo: string;
-    genero: string;
-    nivelEducativo: string;
-    ciudad: string;
-    edad: number | null;
-  } = {
+  filtros = {
     experiencia: null,
     cargo: '',
     genero: '',
@@ -31,35 +23,37 @@ export class SearchPageComponent implements OnInit {
     edad: null,
   };
 
-  // Opciones de selección
-  nivelesEducativos: string[] = [
-    'Bachillerato',
-    'Técnico',
-    'Tecnólogo',
-    'Profesional',
-    'Posgrado',
-  ];
-  generos: string[] = ['Masculino', 'Femenino', 'Otro'];
+  nivelesEducativos = ['Bachillerato', 'Técnico', 'Tecnólogo', 'Profesional', 'Posgrado'];
+  generos = ['Masculino', 'Femenino', 'Otro'];
 
-  private http = inject(HttpClient);
+  private excelService = inject(ExcelService);
 
   ngOnInit(): void {
     this.obtenerRegistros();
   }
 
   obtenerRegistros(): void {
-    this.http.get<any[]>('/api/excel/data').subscribe({
+    this.excelService.obtenerDatos().subscribe({
       next: (data) => {
         this.registros = data;
-        this.registrosFiltrados = data; // Inicializa los registros filtrados con todos los datos
+        this.registrosFiltrados = data;
       },
       error: (err) => {
         console.error('Error al obtener los registros:', err);
-      },
+        this.registros = [];
+        this.registrosFiltrados = [];
+      }
     });
   }
 
   aplicarFiltros(): void {
+    const noHayFiltrosActivos = Object.values(this.filtros).every((valor) => !valor);
+
+    if (noHayFiltrosActivos) {
+      this.registrosFiltrados = this.registros;
+      return;
+    }
+
     this.registrosFiltrados = this.registros.filter((registro) => {
       return (
         (!this.filtros.experiencia || registro.experiencia >= this.filtros.experiencia) &&

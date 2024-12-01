@@ -2,28 +2,28 @@
   <h2>Registrarse</h2>
   <p>Ingresa tus datos personales, de contacto, educación y experiencia laboral.</p>
 
-  <form class="form-container">
+  <form class="form-container" (ngSubmit)="onSubmit()">
     <!-- Información Personal -->
     <h3 class="section-title">Información Personal</h3>
 
     <div class="form-group">
       <label for="nombre">Nombre Completo:</label>
-      <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre completo" required />
+      <input type="text" id="nombre" name="nombre" [(ngModel)]="formData.nombre" placeholder="Ingrese su nombre completo" required />
     </div>
 
     <div class="form-group">
       <label for="edad">Edad:</label>
-      <input type="text" id="edad" name="edad" placeholder="Ingrese su edad" required />
+      <input type="number" id="edad" name="edad" [(ngModel)]="formData.edad" placeholder="Ingrese su edad" required />
     </div>
 
     <div class="form-group">
       <label for="fecha-nacimiento">Fecha de nacimiento:</label>
-      <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" required />
+      <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" [(ngModel)]="formData.fechaNacimiento" required />
     </div>
 
     <div class="form-group">
       <label for="genero">Género:</label>
-      <select id="genero" name="genero" required>
+      <select id="genero" name="genero" [(ngModel)]="formData.genero" required>
         <option value="" disabled selected>Seleccione una opción</option>
         <option value="masculino">Masculino</option>
         <option value="femenino">Femenino</option>
@@ -36,23 +36,23 @@
 
     <div class="form-group">
       <label for="correo">Correo electrónico:</label>
-      <input type="email" id="correo" name="correo" placeholder="Ingrese su correo" required />
+      <input type="email" id="correo" name="correo" [(ngModel)]="formData.correo" placeholder="Ingrese su correo" required />
     </div>
 
     <div class="form-group">
       <label for="telefono">Número de teléfono:</label>
-      <input type="tel" id="telefono" name="telefono" placeholder="Ingrese su teléfono" required />
+      <input type="tel" id="telefono" name="telefono" [(ngModel)]="formData.telefono" placeholder="Ingrese su teléfono" required />
     </div>
 
     <div class="form-group">
       <label for="direccion">Localización:</label>
-      <input type="text" id="direccion" name="direccion" placeholder="direccion" required />
-      <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" required />
+      <input type="text" id="direccion" name="direccion" [(ngModel)]="formData.direccion" placeholder="Dirección" required />
+      <input type="text" id="ciudad" name="ciudad" [(ngModel)]="formData.ciudad" placeholder="Ciudad" required />
     </div>
 
     <div class="form-group">
       <label for="redes">Perfil en redes sociales:</label>
-      <input type="text" id="redes" name="redes" placeholder="Ejemplo: @usuario" />
+      <input type="text" id="redes" name="redes" [(ngModel)]="formData.redes" placeholder="Ejemplo: @usuario" />
     </div>
 
     <!-- Educación -->
@@ -60,7 +60,7 @@
 
     <div class="form-group">
       <label for="nivel-educativo">Nivel educativo:</label>
-      <select id="nivel-educativo" name="nivel-educativo" required>
+      <select id="nivel-educativo" name="nivel-educativo" [(ngModel)]="formData.nivelEducativo" required>
         <option value="" disabled selected>Seleccione una opción</option>
         <option value="bachillerato">Bachillerato</option>
         <option value="tecnico">Técnico</option>
@@ -72,17 +72,17 @@
 
     <div class="form-group">
       <label for="institucion">Institución educativa:</label>
-      <input type="text" id="institucion" name="institucion" placeholder="Ingrese la institución educativa" required />
+      <input type="text" id="institucion" name="institucion" [(ngModel)]="formData.institucion" placeholder="Ingrese la institución educativa" required />
     </div>
 
     <div class="form-group">
       <label for="titulo">Título obtenido:</label>
-      <input type="text" id="titulo" name="titulo" placeholder="Ingrese el título obtenido" required />
+      <input type="text" id="titulo" name="titulo" [(ngModel)]="formData.titulo" placeholder="Ingrese el título obtenido" required />
     </div>
 
     <div class="form-group">
       <label for="anio-graduacion">Año de graduación:</label>
-      <input type="number" id="anio-graduacion" name="anio-graduacion" placeholder="Ejemplo: 2020" required />
+      <input type="number" id ="anio-graduacion" name="anio-graduacion" [(ngModel)]="formData.anioGraduacion" placeholder="Ejemplo: 2020" required />
     </div>
 
     <!-- Experiencia Laboral -->
@@ -90,25 +90,31 @@
 
     <div class="form-group">
       <label for="empresa">Último empleo:</label>
-      <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa" required />
+      <input type="text" id="empresa" name="empresa" [(ngModel)]="formData.empresa" placeholder="Nombre de la empresa" required />
     </div>
 
     <div class="form-group">
       <label for="cargo">Cargo:</label>
-      <input type="text" id="cargo" name="cargo" placeholder="Ingrese el cargo" required />
+      <input type="text" id="cargo" name="cargo" [(ngModel)]="formData.cargo" placeholder="Ingrese el cargo" required />
     </div>
 
     <div class="form-group">
-      <label for="fechas">Fechas:</label>
-      <input type="date" id="fecha-inicio" name="fecha-inicio" required />
-      <input type="date" id="fecha-fin" name="fecha-fin" required />
+      <label for="fechas">Fecha inicio:</label>
+      <input type="date" id="fecha-inicio" name="fecha-inicio" [(ngModel)]="formData.fechaInicio" required />
+      <label for="fechas">Fecha fin:</label>
+      <input type="date" id="fecha-fin" name="fecha-fin" [(ngModel)]="formData.fechaFin" required />
     </div>
 
     <div class="form-group">
       <label for="responsabilidades">Descripción de responsabilidades:</label>
-      <textarea id="responsabilidades" name="responsabilidades" rows="4" placeholder="Ingrese las responsabilidades"
-        required></textarea>
+      <textarea id="responsabilidades" name="responsabilidades" [(ngModel)]="formData.responsabilidades" rows="4" placeholder="Ingrese las responsabilidades" required></textarea>
     </div>
+
+    <div class="form-group">
+      <label for="experiencia">Años de experiencia:</label>
+      <input type="text" id="experiencia" name="experiencia" [(ngModel)]="formData.experiencia" placeholder="Ingrese los años de experiencia" />
+    </div>
+
     <!-- Botón -->
     <button type="submit">Enviar</button>
   </form>
